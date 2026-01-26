@@ -1,4 +1,4 @@
-price = float(input("what is the coast of the item: "))
+"""price = float(input("what is the coast of the item: "))
 
 Tax_rate = float(input("what is the tax percent: "))
 
@@ -14,5 +14,8 @@ Apples = 27
 
 friends = 4
 
-"""print("each of my friends can have", Apples//friends, "and will have ", 
+print("each of my friends can have", Apples//friends, "and will have ", 
       Apples%friends, "left over")"""
+
+
+
