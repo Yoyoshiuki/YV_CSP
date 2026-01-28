@@ -11,7 +11,7 @@ sv = round((0.10 * income), 2)
 utt = round((ut / income *100), 2) 
 t = round((rm + ut + gr + tr + sv), 2)
 tt = round(( income - t ), 2)
-"""round(( / income *100), 2)"""
+
 
 print("Your rent is $", rm,  "and that is ",  rmt,"% of your income")
 
