@@ -9,8 +9,6 @@ int main() {
     int adj;
     printf("Type an adjective: ");
     scanf("%d", &adj);  
-    printf("Type a color: ");
-    scanf("%d", &color); 
     int color;
     printf("Type a color: ");
     scanf("%d", &color); 
