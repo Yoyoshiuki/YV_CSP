@@ -28,3 +28,46 @@ monthly(gr, cal(gr, income), "grocieries")
 monthly(tr, cal(tr, income), "transportation")
 print(f"You should save {sv} since that's 10% of your income!")
 print(f"You have ${tt} of spending money!")
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+double cal(double number, double income) {
+    return ((number / income) * 100);
+}
+
+int main() {
+    double income = 0.0;
+    printf("How much is your income cuh? ");
+    scanf("%lf", &income);
+
+    double rm = ask("rent");
+    double ut = ask("utillities");
+    double gr = ask("grocieries");
+    double tr = ask("transportation");
+
+    double sv = 0.10 * income;
+    double t = rm + ut + gr + tr + sv;
+    double tt = income - t;
+
+    monthly(rm, cal(rm, income), "rent");
+    monthly(ut, cal(ut, income), "utiliities");
+    monthly(gr, cal(gr, income), "grocieries");
+    monthly(tr, cal(tr, income), "transportation");
+    printf("You should save %.2f since that's 10%% of your income!\n", sv);
+    printf("You have $%.2f of spending money!\n", tt);
+
+    return 0;
