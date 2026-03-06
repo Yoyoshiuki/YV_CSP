@@ -12,35 +12,17 @@ float calc(float number, float income) {
 
 float ask(const char* name) {
     float spend;
-    int rc;
-
-    do {
-        printf("How much are you spending on %s? ", name);
-        rc = scanf("%f", &spend);
-        if (rc != 1) {
-            printf("Please enter a valid number.\n");
-            int c;
-            while ((c = getchar()) != EOF && c != '\n');
-        }
-    } while (rc != 1);
-
+     printf("How much are you spending on %s? ", name);
+    scanf("%f", &spend);
     return spend;
 }
 
 
 int main() {
     float income = 0.0;
-    int rc;
-
-    do {
-        printf("How much is your income? ");
-        rc = scanf("%f", &income);
-        if (rc != 1) {
-            printf("Please enter a valid number.\n");
-            int c;
-            while ((c = getchar()) != EOF && c != '\n');
-        }
-    } while (rc != 1);
+    printf("How much is your income? ");
+  scanf("%f", &income);
+    
 
     float rm = ask("rent");
     float ut = ask("utilities");
