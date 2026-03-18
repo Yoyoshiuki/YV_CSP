@@ -3,7 +3,8 @@
 #include <stdlib.h>
 #include <time.h>
 
-
+ player = (player == 'X') ? 'O' : 'X';
+ 
 int main(){
     int i = 1;
     while (i <= 10 ){
@@ -23,7 +24,7 @@ int main(){
         printf("Duck!\n");
         count++;
     }
-printf("Goose!\n")
+printf("Goose!\n");
 
     return 0;
 }
