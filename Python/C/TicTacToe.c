@@ -1,8 +1,9 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <time.h>
+// TicTacToe/Programming Project CM & YV
+#include <stdio.h> // - Yossel
+#include <stdlib.h> // - Yossel
+#include <time.h>// - Yossel
 
-void Board(char board[3][3]) {
+void Tic_Board(char board[3][3]) { // Function to display the tic-tac-toe board- consti
     printf("  0   1   2\n");
     printf("0 %c | %c | %c \n", board[0][0], board[0][1], board[0][2]);
     printf(" ---+---+---\n");
@@ -11,7 +12,8 @@ void Board(char board[3][3]) {
     printf("2 %c | %c | %c \n", board[2][0], board[2][1], board[2][2]);
 }
 
-int win(char board[3][3], char player) {
+
+int win(char board[3][3], char player) { // Function to check if a player has won- consti
     for (int i = 0; i < 3; i++) {
         if (board[i][0] == player && board[i][1] == player && board[i][2] == player)
             return 1;
@@ -25,14 +27,14 @@ int win(char board[3][3], char player) {
     return 0;
 }
 
-void Ai_moves(char board[3][3]) {
+void Ai_moves(char board[3][3]) { // Function for the computer to make a move - yossel
     int row, col;
     int empty_spots[9][2];
     int count = 0;
 
-    for (int idk = 0; idk < 3; idk++) {
+    for (int idk = 0; idk < 3; idk++) { // Find all empty spots on the board - Yossel
         for (int idc = 0; idc < 3; idc++) {
-            if (board[idk][idc] == "") {
+            if (board[idk][idc] == ' ') {
                 empty_spots[count][0] = idk;
                 empty_spots[count][1] = idc;
                 count++;
@@ -40,7 +42,7 @@ void Ai_moves(char board[3][3]) {
         }
     }
 
-    if (count > 0) {
+    if (count > 0) { // If there are empty spots, it chooses one randomly
         int choice = rand() % count;
         row = empty_spots[choice][0];
         col = empty_spots[choice][1];
@@ -52,7 +54,7 @@ void Ai_moves(char board[3][3]) {
 int main() {
     srand(time(NULL));
 
-    char board[3][3] = {
+    char board[3][3] = { // start the tic-tac-toe board with empty spaces -both 
         {' ', ' ', ' '},
         {' ', ' ', ' '},
         {' ', ' ', ' '}
@@ -60,11 +62,11 @@ int main() {
     char player = 'X';
     int row, col;
 
-    for (int turn = 0; turn < 9; turn++) {
-        Board(board);
+    for (int turn = 0; turn < 9; turn++) { // Main game loop for a max of 9 turns - Both
+        Tic_Board(board);
 
-        if (player == 'X') {
-            printf("Player %c, enter your move (Row [space] Column): ", player);
+        if (player == 'X') { // Player's turn
+            printf("Player %c, enter your move (Row [space] Column ): ", player);
             scanf("%d %d", &row, &col);
             if (row < 0 || row > 2 || col < 0 || col > 2 || board[row][col] != ' ') {
                 printf("Invalid move. Try again.\n");
@@ -77,8 +79,8 @@ int main() {
             Ai_moves(board);
         }
 
-        if (win(board, player)) {
-            Board(board);
+        if (win(board, player)) { // Check if the current player has won - consti
+            Tic_Board(board);
             if (player == 'X') {
                 printf("Player %c wins!\n", player);
             } else {
@@ -88,10 +90,10 @@ int main() {
         }
 
      
-    
+         player = (player == 'X') ? 'O' : 'X'; // Switch player for the next turn - Yossel
     }
 
-    Board(board);
+    Tic_Board(board); // If all turns are used and no one won it prints a tie - both
     printf("It's a tie!\n");
     return 0;
 }
