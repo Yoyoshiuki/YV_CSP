@@ -58,6 +58,11 @@
                     width: 50%;
                 }
             </style>
+            <script>
+                function show(){
+                    document.getElementsByClassName('images').style.background-color='red'
+                }
+            </script>
     </head>
     <body>
         <h1>HTML Advanced Notes</h1>
@@ -86,6 +91,7 @@
             <li>grape</li>
         </ul>
         <div class="images">
+            <button onclick={show()}>show images</button>
         <a href="httpps://www.w3schools.com/tags/tag_ul.asp" target="_blank">w3schools Unordered lists</a>
         <img src="https://www.bing.com/th/id/OIP.84W_g48Q89xTdN3ABKZVRgHaEo?w=188&h=135&c=8&rs=1&qlt=90&o=6&pid=3.1&rm=2" alt="Cute cat" height="200px">
             </div>
