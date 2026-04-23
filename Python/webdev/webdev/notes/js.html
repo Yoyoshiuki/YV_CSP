@@ -1,3 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Javascript</title>
+    <meta charset="UTF-8">
+    <style>
+        img{
+            width: 50%;
+        }
+        #img-wrapper{
+             display: none;
+        }
+    </style>
+    <script>
+        function change_color(){
+            document.getElementById("change").style.color = "orange"
+        }
+            function show_img(){
+                if(document.getElementById("img-wrapper").style.display == "block"){
+                    document.getElementById("img-wrapper").style.display ="none"
+                    document.getElementById("show").innerHTML="show image"
+                }else{
+                    document.getElementById("img-wrapper").style.display ="block"
+                    document.getElementById("show").innerHTML="hide image"
+                }
+                
+            }
+            function hover(){
+                document.getElementById(id).style.backgroundColor = "blue"
+                document.getElementById(id).style.color = "white"
+            }
+             function leave(){
+                document.getElementById(id).style.backgroundColor = "gray"
+                document.getElementById(id).style.color = "black"
+            }
+            function popup(){
+                alert("You should be in school")
+            }
+        //onlcikc
+    </script>
+</head>
+<body>
+    <h1 id="change" onmouseover="popup()">Javasctpit notes</h1>
+    <button onclick="show_img()" id="show" onmouseover="hover('show')" onmouseout="leave('show')">Show Image</button>
+    <div id="img-wrapper">
+    <img src="https://www.bing.com/th/id/OIP.84W_g48Q89xTdN3ABKZVRgHaEo?w=188&h=135&c=8&rs=1&qlt=90&o=6&pid=3.1&rm=2" alt="Cute cat" height="200px">
+    </div>
+</body>
+</html>
+
+
+
+
+
+
 <!--YV First Web Page period 3-->
 <!DOCTYPE html>
 <html lang="en">
@@ -82,7 +137,7 @@
             <li>Bb5, a6</li>
             <li>Ba4, Nf6</li>
             <li>O-O, Be7</li>
-    
+           
         </ol>
         </div>
         <div>
