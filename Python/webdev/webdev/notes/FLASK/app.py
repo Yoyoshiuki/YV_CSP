@@ -4,23 +4,23 @@ app = Flask(__name__)
 
 @app.route('/')
 def home():
-    return "<p>Hello, World!</p>"
+    return render_template('name.html', title='Home page', content='This is my home page.')
 
 @app.route('/<name>')
 def user(name):
-    return f"Hello, {name}!"
+  return render_template('name.html', title=f'This is {name}\'s page', content=f'This is the page for {name}.')
 
 @app.route('/test')
 def testing():
-    return "<p>This is a test</p>"
+    return render_template('name.html', title='Test page', content='This is a test page.')
 
-@app.route('/login', methods=['GET', 'POST'])
+"""@app.route('/login', methods=['GET', 'POST'])
 def login():
     if request.method == 'POST':
         name = request.form['username']
         return f'Hello, {name}!'
     return render_template('Python\webdev\webdev\notes\FLASK\name.html')
-
+"""
 
 if __name__ == '__main__':
     app.run()
