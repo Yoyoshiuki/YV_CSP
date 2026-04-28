@@ -29,9 +29,55 @@
             justify-content: center;
             align-items: center;
         }
-    </style>
-
+        #img-wrapper{
+            display: flex;
+            justify-content: center;
+  
+        }
+        .imgs img{
+            margin: 10px;
+        }
+         button {
+            display: block;
+            margin: 20px auto;
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: rgb(228, 221, 185);
+            color: rgb(58, 38, 13);
+            border: none;
+            border-radius: 10px;
+            
+        }
+         button:hover {
+            background-color: rgb(255, 255, 255);
+        }
+        #pando-img {
+            display: flex;
+            margin: 25px auto;
+        }
     
+
+    </style>
+    <script>
+        function show_img(){
+            if(document.getElementById("img-wrapper").style.display == "none"){
+                document.getElementById("img-wrapper").style.display ="block"
+                document.getElementById("show").innerHTML="Hide Info"
+            } else {
+                document.getElementById("img-wrapper").style.display ="none"
+                document.getElementById("show").innerHTML="Additional Info"
+            }
+        }
+        function hover(id){
+            document.getElementById("img-wrapper").style.display = "other_img"
+            document.getElementById(id).style.color = "rgb(58, 38, 13)"
+        }
+         function leave(id){
+            document.getElementById(id).style.backgroundColor = "rgb(228, 221, 185)"
+            document.getElementById(id).style.color = "rgb(58, 38, 13)"
+        }
+    </script>
+
 </head>
 <body>
     <h1>Pando</h1>
@@ -46,6 +92,27 @@
     <img src="https://www.grandcanyontrust.org/sites/default/files/maps/blog/uf-pando-aspen-clone-location-map.jpg" alt="Pando Land Area" height="200px">
     <img src="https://static.wixstatic.com/media/eac4ca_a2e11ac06c9e4c77816988bc039f5a92~mv2.png/v1/fill/w_550,h_397,al_c,q_85,enc_avif,quality_auto/eac4ca_a2e11ac06c9e4c77816988bc039f5a92~mv2.png" alt="Pando Explaination" height="200px">
 </div>
-<p>Biologist all over the world travel to see Pando. </p>
+<p>Biologist all over the world travel to see Pando to study its unique characteristics and genetic makeup. <br>
+Pando's age is estimated to be around 80,000 years old, making it one of the oldest living organisms on Earth. <br>
+Pando's root system is interconnected, allowing it to share nutrients and water through its stems. <br>
+Pando's ability to regenerate itself through cloning has allowed it to survive for thousands of years, even in the face of environmental challenges. <br>
+Its size and longevity make it a fascinating subject of study for scientists interested in ecology, genetics, and the resilience of life on Earth. <br>
+It's impressive age can give us insights of the last ice age and how climate change has impacted the region over millennia. <br>
+</p>
+<div>
+    <button onclick="show_img()" id="show" onmouseover="hover('show')" onmouseout="leave('show')">Additional Info</button>
+    <div id="img-wrapper" style="display: none;">
+        <img id="pando-img" src="https://cloudfront-us-east-1.images.arcpublishing.com/sltrib/ASVAAHFOM5GKBHCPEQZ4YO6IRA.jpg" alt="Pando" height="250px">
+        <p>
+            Pando is not just a single tree, but a massive <br>
+            network of genetically identical trees connected<br> by a single root system. This unique characteristic<br>
+            makes it a subject of great interest for <br>
+             scientists studying clonal organisms and their resilience.
+        </p>
+    </div>
+    <div id="other_img" style="display: none;">
+        <img src="https://cdn.mos.cms.futurecdn.net/cZXus2jsmeJzKjzZ7vBhNB.jpg" alt="Other Pando Image" height="250px">
+    </div>
+</div>
 </body>
 </html>
