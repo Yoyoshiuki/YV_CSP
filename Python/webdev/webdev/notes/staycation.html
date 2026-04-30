@@ -82,7 +82,7 @@
             if(!img) return;
 
             if(!img.dataset.original) img.dataset.original = img.src;
-            const other = document.querySelector('#other_img img');
+            const other = document.getElementById('#other_img img');
             const otherSrc = other ? other.src : "https://cdn.mos.cms.futurecdn.net/cZXus2jsmeJzKjzZ7vBhNB.jpg";
             img.src = otherSrc;
         }
