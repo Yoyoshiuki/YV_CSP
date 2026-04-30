@@ -1,0 +1,63 @@
+!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>JavaScript Notes</title>
+        <meta charset="UTF-8">
+        <style>
+            img{
+                display: none;
+                width: 50%;
+            }
+        </style>
+        <script>
+            let count = 0
+            let img_count = 0
+            let imgs = ["https://upload.wikimedia.org/wikipedia/commons/1/12/Mount_Timpanogos_-_01-07-08.jpg","https://www.earthdiver.com/cdn-cgi/image/width=4000,quality=75,format=auto/https://assets.earthdiver.com/media/media-2727684.jp?w=5246&h=2193&tick=1667491652923", "https://ctfassets.ksldigital.com/0wjmk6wgfops/5JD8w0POZhQ3qrd67umb3x/20641b214beec98ee856a8b51b278947/1d4f485432_d05d7611-2084-4c25-ac90-807915184a65.jpg?q=70"]
+
+            function change(){
+                if(img_count >= imgs.length){
+                    img_count = 0
+                }else{
+                    img_count += 1
+                }
+                document.getElementById("timp").src = imgs[img_count]
+            }
+
+            function color_change(){
+                document.getElementById("shift").style.color = document.getElementById('selected-color').value 
+            }
+            function add(){
+                count += 1
+                document.getElementById('number').innerHTML = count
+            }
+            function hover(id){
+                document.getElementById(id).style.backgroundColor = "red"
+                document.getElementById(id).style.color = "white"
+            }
+            function unhover(id){
+                document.getElementById(id).style.backgroundColor = "lightgray"
+                document.getElementById(id).style.color = "black"
+            }
+            function popup(){
+                alert("This is about JavaScript!")
+            }
+            function show(){
+                if(document.getElementById("timp").style.display == "block"){
+                    document.getElementById("timp").style.display = "none"
+                }else{
+                document.getElementById("timp").style.display = "block"
+                }
+            }
+            //onclick onmousedown onmouseup onmouseover onmouseout
+        </script>
+    </head>
+    <body>
+        <h1 id="shift" onclick="popup()">JavaScript Notes</h1>
+        <input type="color" id="selected-color"/>
+        <button onclick="color_change()" onmouseover="hover('one')" onmouseout="unhover('one')" id="one">Change color</button>
+        <p id="number" onmouseover="show()">0</p>
+        <button onclick="add()" onmouseover="hover('two')" onmouseout="unhover('two')" id="two">increase</button>
+        <br>
+        <img id="timp" alt="timpanogos" src="https://www.earthdiver.com/cdn-cgi/image/width=4000,quality=75,format=auto/https://assets.earthdiver.com/media/media-2727684.jp?w=5246&h=2193&tick=1667491652923" onmouseover="change()">
+    </body>
+</html>

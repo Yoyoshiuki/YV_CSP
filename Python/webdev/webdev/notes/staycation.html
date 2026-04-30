@@ -49,8 +49,9 @@
             transition: background-color 0.3s, color 0.3s;
         }
          button:hover {
+             color: rgb(58, 38, 13);
             background-color: rgb(238, 235, 232);
-            cursor: pointer;
+            color: rgb(58, 38, 13);
         }
         #pando-img {
             display: flex;
@@ -65,6 +66,7 @@
 
     </style>
     <script>
+        let img=["https://cdn.mos.cms.futurecdn.net/cZXus2jsmeJzKjzZ7vBhNB.jpg"]
         function show_img(){
             if(document.getElementById("img-wrapper").style.display == "none"){
                 document.getElementById("img-wrapper").style.display ="block"
@@ -74,10 +76,33 @@
                 document.getElementById("show").innerHTML="Additional Info"
             }
         }
+
         function hover(id){
-            document.getElementById("img-wrapper").style.display = "other_img"
-            document.getElementById(id).style.color = "rgb(58, 38, 13)"
+            const img = document.getElementById(id);
+            if(!img) return;
+
+            if(!img.dataset.original) img.dataset.original = img.src;
+            const other = document.querySelector('#other_img img');
+            const otherSrc = other ? other.src : "https://cdn.mos.cms.futurecdn.net/cZXus2jsmeJzKjzZ7vBhNB.jpg";
+            img.src = otherSrc;
         }
+
+        function leave(id){
+            const img = document.getElementById(id);
+            if(!img) return;
+
+            if(!img.dataset.original) img.dataset.original = img.src;
+            const other = document.getElementById('#other_img img');
+            const otherSrc = other ? other.src : "https://cdn.mos.cms.futurecdn.net/cZXus2jsmeJzKjzZ7vBhNB.jpg";
+            img.src = otherSrc;
+        }
+
+        function leave(id){
+            const img = document.getElementById(id);
+            if(!img) return;
+
+            if(img.dataset.original) img.src = img.dataset.original;
+        }   
     </script>
 </head>
 <body>
@@ -89,7 +114,7 @@
 
     </p>
     <div class="imgs">
-     <img src="https://th-thumbnailer.cdn-si-edu.com/2mysp4oedl6uAd2s1681OVbbTkk=/fit-in/1200x0/https://tf-cmsv2-smithsonianmag-media.s3.amazonaws.com/filer/a6/85/a685500e-07bf-4565-8f7d-8270a4ecc171/182297_web.jpg" alt="Pando" height="200px">
+     <img id="lol" onmouseover="hover('lol')" onmouseout="leave('lol')" src="https://th-thumbnailer.cdn-si-edu.com/2mysp4oedl6uAd2s1681OVbbTkk=/fit-in/1200x0/https://tf-cmsv2-smithsonianmag-media.s3.amazonaws.com/filer/a6/85/a685500e-07bf-4565-8f7d-8270a4ecc171/182297_web.jpg" alt="Pando" height="200px">
     <img src="https://www.grandcanyontrust.org/sites/default/files/maps/blog/uf-pando-aspen-clone-location-map.jpg" alt="Pando Land Area" height="200px">
     <img src="https://static.wixstatic.com/media/eac4ca_a2e11ac06c9e4c77816988bc039f5a92~mv2.png/v1/fill/w_550,h_397,al_c,q_85,enc_avif,quality_auto/eac4ca_a2e11ac06c9e4c77816988bc039f5a92~mv2.png" alt="Pando Explaination" height="200px">
 </div>
@@ -100,8 +125,7 @@
     <li>Prime example of clonal growth</li>
 </ul>
 <p>Are all examples of why someone would visit Pando.</p>
- <br>
-<p>Biologist all over the world travel to see Pando to study its unique characteristics and genetic makeup. <br>
+ <p>Biologist all over the world travel to see Pando to study its unique characteristics and genetic makeup. <br>
 Pando's age is estimated to be around 80,000 years old, making it one of the oldest living organisms on Earth. <br>
 Pando's root system is interconnected, allowing it to share nutrients and water through its stems. <br>
 Pando's ability to regenerate itself through cloning has allowed it to survive for thousands of years, even in the face of environmental challenges. <br>
